@@ -1,6 +1,4 @@
 $(document).ready(function() {
-            
-    //  API_KEY Qu7033MRHd7mBcNjAx9xBljKsfCMGNRR
     
     // Initial array of cartoons
     var cartoons = ["Daffy Duck", "Wile E. Coyote", "Bugs Bunny", "Elmer Fudd",
@@ -9,7 +7,7 @@ $(document).ready(function() {
     var currentCartoon = "";
     var gifCount = 10;
 
-    // Calls the renderButtons function to display the intial buttons
+    // Calls the renderInitialButtons function to display the intial buttons
     renderInitialButtons();
 
     // Adds click event listeners to all elements with a class of "cartoonH"
@@ -18,8 +16,11 @@ $(document).ready(function() {
     // Adds click event listeners to all elements with a class of "gif"
     $(document).on("click", ".gif", animate);
 
-    // Adds click event listeners to all elements with a class of "gif"
+    // Adds a click event listener to the element with an id of "add-gifs"
     $(document).on("click", "#add-gifs", displayMoreGifs);
+
+    // Adds a click event listener to element with an id of "add-cartoon"
+    $(document).on("click", "#add-cartoon", addCartoon);
         
     // Function for displaying initial cartoon buttons from the array
     function renderInitialButtons() {
@@ -44,11 +45,10 @@ $(document).ready(function() {
         // Added the button to the buttons-view div
         $("#buttons-view").append(newButton);
 
-    }
+    };
 
     // This function handles events when the add cartoon button is clicked
-    // Should this be handled by $(document).on???
-    $("#add-cartoon").on("click", function(event) {
+    function addCartoon(event) {
 
         // This prevents page refreshing which could cause adverse consequences
         event.preventDefault();
@@ -66,7 +66,7 @@ $(document).ready(function() {
             // Calling renderNewButton which will add a new button
             renderNewButton(cartoons.length-1);
         }
-    });   
+    };   
 
     // This function displays the cartoon gifs
     function displayCartoonInfo() {
@@ -91,28 +91,8 @@ $(document).ready(function() {
 
             var results = response.data;
 
-            for (var i = 0; i < results.length; i++) {
-
-                var gifdiv = $("<div>");
-
-                var cartoonTitle = $("<h5>").text("Title: " + results[i].title);
-               
-                var cartoonRating = $("<h5>").text("Rating: " + results[i].rating);
-
-                var cartoonImage = $("<img>");
-                cartoonImage.attr("src", results[i].images.fixed_height_still.url);
-                cartoonImage.attr("data-still", results[i].images.fixed_height_still.url);
-                cartoonImage.attr("data-animate", results[i].images.fixed_height.url);
-                cartoonImage.attr("data-state", "still");
-                cartoonImage.attr("class", "gif");
-
-                gifdiv.append(cartoonTitle);
-                gifdiv.append(cartoonRating);
-                gifdiv.append(cartoonImage);
-
-                $("#cartoons-view").append(gifdiv);
-
-            }
+            display(results);
+            
         });
     };
 
@@ -138,10 +118,6 @@ $(document).ready(function() {
 
         // This prevents page refreshing which could cause adverse consequences
         event.preventDefault();
-
-        // This clears the existing gifs
-        // $("#cartoons-view").empty();
-
         
          if (currentCartoon == "") {
              alert("You must first select a gif in order to get more of those gifs!");
@@ -161,31 +137,38 @@ $(document).ready(function() {
 
                 var results = response.data;
 
-                var displayedGifCount = gifCount - 10;
-
-                for (var i = displayedGifCount; i < results.length; i++) {
-
-                    var gifdiv = $("<div>");
-
-                    var cartoonTitle = $("<h5>").text("Title: " + results[i].title);
+                display(results);
                 
-                    var cartoonRating = $("<h5>").text("Rating: " + results[i].rating);
-
-                    var cartoonImage = $("<img>");
-                    cartoonImage.attr("src", results[i].images.fixed_height_still.url);
-                    cartoonImage.attr("data-still", results[i].images.fixed_height_still.url);
-                    cartoonImage.attr("data-animate", results[i].images.fixed_height.url);
-                    cartoonImage.attr("data-state", "still");
-                    cartoonImage.attr("class", "gif");
-
-                    gifdiv.append(cartoonTitle);
-                    gifdiv.append(cartoonRating);
-                    gifdiv.append(cartoonImage);
-
-                    $("#cartoons-view").append(gifdiv);
-                }
             });
         }
+    };
+
+    function display (results){
+
+        var displayedGifCount = gifCount - 10;
+
+        for (var i = displayedGifCount; i < results.length; i++) {
+
+            var gifdiv = $("<div>");
+
+            var cartoonTitle = $("<h5>").text("Title: " + results[i].title);
+        
+            var cartoonRating = $("<h5>").text("Rating: " + results[i].rating);
+
+            var cartoonImage = $("<img>");
+            cartoonImage.attr("src", results[i].images.fixed_height_still.url);
+            cartoonImage.attr("data-still", results[i].images.fixed_height_still.url);
+            cartoonImage.attr("data-animate", results[i].images.fixed_height.url);
+            cartoonImage.attr("data-state", "still");
+            cartoonImage.attr("class", "gif");
+
+            gifdiv.append(cartoonTitle);
+            gifdiv.append(cartoonRating);
+            gifdiv.append(cartoonImage);
+
+            $("#cartoons-view").append(gifdiv);
+        }
+
     };
 
 })

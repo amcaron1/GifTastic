@@ -18,7 +18,7 @@ input {
 .main-wrapper{
   background: teal;
   width: 50%;
-  border: solid 2px yellow;
+  border: solid 4px yellow;
 }
 
 button, .form-box{
