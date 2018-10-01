@@ -1,0 +1,68 @@
+body{
+  background-image: url("../images/looney-tunes-1.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+button,
+div,
+form,
+input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.main-wrapper{
+  background: teal;
+  width: 50%;
+  border: solid 2px yellow;
+}
+
+button, .form-box{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#buttons-view{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: solid 2px lightgray;
+}
+
+#cartoons-view{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.heading{
+  font-family: "Comic Sans MS";
+  text-align: center;
+  color: yellow;
+}
+
+#cartoon-form{
+  text-align: center;  
+}
+
+.form-box{
+  min-width: 150px;
+  max-width: 150px;
+}
+
+#cartoon-input{
+  text-align: center;
+}
+
+.cartoonH {
+  min-width: 150px;
+  max-width: 150px;
+}
+
+.gif{
+  width: 90%;
+}
