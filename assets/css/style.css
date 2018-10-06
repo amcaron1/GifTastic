@@ -19,6 +19,7 @@ input {
   background: teal;
   width: 50%;
   border: solid 4px yellow;
+  margin-top: 20px;
 }
 
 button, .form-box{
