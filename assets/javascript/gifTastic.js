@@ -7,7 +7,7 @@ $(document).ready(function() {
     var currentCartoon = "";
     var gifCount = 10;
 
-    // Calls the renderInitialButtons function to display the intial buttons
+    // Calls function to display the intial buttons
     renderInitialButtons();
 
     // Adds click event listeners to all elements with a class of "cartoonH"
@@ -38,11 +38,11 @@ $(document).ready(function() {
         var newButton = $("<button>");
         // Adds a class of cartoon to our button
         newButton.addClass("cartoonH");
-        // Added a data-attribute
+        // Adds a data-attribute
         newButton.attr("data-name", cartoons[i]);
-        // Provided the initial button text
+        // Provides the initial button text
         newButton.text(cartoons[i]);
-        // Added the button to the buttons-view div
+        // Adds the button to the buttons-view div
         $("#buttons-view").append(newButton);
 
     };
@@ -63,7 +63,7 @@ $(document).ready(function() {
             // The cartoon from the textbox is then added to our array
             cartoons.push(newCartoon);
 
-            // Calling renderNewButton which will add a new button
+            // Calls function which will add a new button
             renderNewButton(cartoons.length-1);
         }
     };   
@@ -74,6 +74,7 @@ $(document).ready(function() {
         // This clears the existing gifs
         $("#cartoons-view").empty();
 
+        //  Since this is a new cartoon, the gifcount is reset to its base value
         gifCount = 10;
 
         //This gets the cartoon name from the button clicked
@@ -114,6 +115,7 @@ $(document).ready(function() {
 
     };
 
+    // This function displays more gifs of the current cartoon
     function displayMoreGifs(event) {
 
         // This prevents page refreshing which could cause adverse consequences
@@ -123,6 +125,7 @@ $(document).ready(function() {
              alert("You must first select a gif in order to get more of those gifs!");
          }
          else {
+            // Sets gifCount to get 10 more gifs
             gifCount = gifCount + 10;
             
             // This creates the url query
@@ -143,6 +146,7 @@ $(document).ready(function() {
         }
     };
 
+    // This function displays the results of an ajax call
     function display (results){
 
         var displayedGifCount = gifCount - 10;
