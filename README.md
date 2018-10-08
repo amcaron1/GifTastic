@@ -7,6 +7,7 @@
     - Allow user to request more gifs for currently selected cartoon
 
 - Key or new skills
+    - Create responsive design with bootstrap containers
     - Create background that covers entire screen and does not scroll
     - Center non-text elements:
         -  display: flex;
