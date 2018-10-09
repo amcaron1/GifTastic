@@ -22,3 +22,6 @@
     - Use "this" to capture identity of clicked element
     - Execute ajax call and display results
 
+- Links
+    - Deployed: https://amcaron1.github.io/GifTastic/
+    - GitHub repository: https://github.com/amcaron1/GifTastic/
