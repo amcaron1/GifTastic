@@ -2,9 +2,10 @@
 
 - Overview
     - Display array of buttons that contain cartoon character names
-    - Make custom ajax call to "api.giphy.com" when s character is clicked and display results
+    - Make custom ajax call to "api.giphy.com" when a character is clicked and display results
     - Allow user to create custom buttons
     - Allow user to request more gifs for currently selected cartoon
+    - Toggle gif on and off by clicking image
 
 - Key or new skills
     - Create responsive design with bootstrap containers
