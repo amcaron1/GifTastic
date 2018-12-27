@@ -1,16 +1,17 @@
 # GifTastic
 
 - Overview
-    - Display buttons for data in an array
-    - Make custom ajax call to "api.giphy.com" when a button is clicked and then display results
-    - Allow user to create more buttons
+    - Display array of buttons that contain cartoon character names
+    - Make custom ajax call to "api.giphy.com" when s character is clicked and display results
+    - Allow user to create custom buttons
     - Allow user to request more gifs for currently selected cartoon
+    - Toggle gif on and off by clicking image
 
 - Key or new skills
     - Create responsive design with bootstrap containers
     - Create background that covers entire screen and does not scroll
     - Center non-text elements:
-        -  display: flex;
+        - display: flex;
         - flex-wrap: wrap;
         - justify-content: center;
     - Set up "$(document).on" click handlers
