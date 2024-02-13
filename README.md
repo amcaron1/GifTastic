@@ -21,9 +21,12 @@ Portfolio Links
 
 Skills
 - HTML
+- CSS
 - Bootstrap
 - Javascript
 - jQuery
+- Ajax
+- API
 
 Sub-skills
 - Create responsive design with bootstrap containers

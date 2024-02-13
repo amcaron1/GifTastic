@@ -82,7 +82,9 @@ $(document).ready(function() {
 
         // This creates the url query
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-            currentCartoon + "&api_key=dc6zaTOxFJmzC&limit=10";
+            currentCartoon + "&api_key=Qu7033MRHd7mBcNjAx9xBljKsfCMGNRR&limit=10";
+            //currentCartoon + "&api_key=dc6zaTOxFJmzC&limit=10";
+
         
         $.ajax({
             url: queryURL,
