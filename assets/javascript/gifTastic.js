@@ -132,19 +132,22 @@ $(document).ready(function() {
             
             // This creates the url query
             var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-                currentCartoon + "&api_key=dc6zaTOxFJmzC&limit=" + gifCount.toString();
+                currentCartoon + "&api_key=Qu7033MRHd7mBcNjAx9xBljKsfCMGNRR&limit=" + gifCount.toString();
 
-            $.ajax({
-                url: queryURL,
-                method: "GET"
-            })
-            .then(function(response) {
+             $.ajax({
+                 url: queryURL,
+                 method: "GET"
+             })
+                .then(function (response) {
 
-                var results = response.data;
+                    var results = response.data;
 
-                display(results);
-                
-            });
+                    display(results);
+
+                })
+                //.fail(function (error) {
+                //    console.log("error = " + error)
+                //});
         }
     };
 
